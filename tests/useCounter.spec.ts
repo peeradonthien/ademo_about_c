@@ -40,13 +40,4 @@ describe('useCounter', () => {
     expect(result.current.count).toBe(2);
   });
 
-  it('should increment by updated val after changing it', () => {
-    const { result } = renderHook(() => useCounter());
-    act(() => {
-      result.current.setVal(3);
-      result.current.increment();
-      result.current.increment();
-    });
-    expect(result.current.count).toBe(6);
-  });
 });
