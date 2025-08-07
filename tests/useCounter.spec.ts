@@ -16,15 +16,19 @@ describe('useCounter', () => {
     expect(result.current.count).toBe(1);
   });
 
-  it('should update val and increment by new val', () => {
+  it('should increment by updated val after changing it', () => {
     const { result } = renderHook(() => useCounter());
+
     act(() => {
-      result.current.setVal(5);
+      result.current.setVal(3);
     });
+
     act(() => {
       result.current.increment();
+      result.current.increment();
     });
-    expect(result.current.count).toBe(5);
+
+    expect(result.current.count).toBe(6);
   });
 
   it('should accumulate count with multiple increments', () => {
